@@ -1,0 +1,49 @@
+body { font-family: 'Segoe UI', sans-serif; background-color: #eef2fa; margin: 0; padding: 40px; }
+.container { width: 850px; margin: 0 auto; background-color: white; padding: 40px; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); box-sizing: border-box; }
+h2 { color: #003366; margin-bottom: 15px; border-bottom: 2px solid #00336633; padding-bottom: 5px; }
+
+/* ENCABEZADO */
+.encabezado { display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; }
+.logo img { max-height: 120px; }
+.datos-empresa { text-align: right; font-size: 13px; color: #333; line-height: 1.4; }
+
+/* FOLIO Y FECHA */
+.fila-superior { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.orden-compra, .fecha-orden { display: flex; flex-direction: column; }
+
+/* SECCIÓN PARTIDAS - SALTO DE PÁGINA */
+.partidas-container { page-break-before: always; padding-top: 20px; }
+
+.partidas-header, .partida-row { display: grid; grid-template-columns: 60px 2fr 100px 90px 100px 50px; gap: 12px; margin-bottom: 12px; }
+.partidas-header { font-weight: 700; color: #003366; }
+input { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; width: 100%; box-sizing: border-box; }
+
+/* CAMPOS */
+.fila-proveedor, .fila-comprador, .fila-recepcion { display: flex; gap: 10px; margin-bottom: 5px; }
+.campo-full, .campo-half, .campo-third { flex: 1; }
+
+/* BOTONES Y TOTALES */
+.totales { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; margin-top: 30px; font-weight: 600; }
+.totales div { background: #f5f7fb; padding: 6px 14px; border-radius: 6px; }
+.acciones { display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px; }
+#btnPDF { background-color: #004080; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.eliminar-partida { background: #cc0000; color: white; border: none; border-radius: 6px; cursor: pointer; }
+
+/* ESTILOS PARA IMPRESIÓN */
+@media print {
+  body { background: white; margin: 0; padding: 0; font-size: 9px; }
+  .container { width: 100%; max-width: 700px; margin: 0; padding: 10px; box-shadow: none; border-radius: 0; background: white; }
+  h2 { margin-bottom: 3px; color: black; font-size: 11px; }
+  .encabezado { margin-bottom: 5px; }
+  .logo img { max-height: 70px; }
+  .datos-empresa { font-size: 9px; line-height: 1.2; }
+  .fila-superior { margin-bottom: 5px; }
+  .proveedor-section, .comprador-section, .recepcion-section { margin-bottom: 5px; }
+  .fila-proveedor, .fila-comprador, .fila-recepcion { gap: 5px; margin-bottom: 3px; }
+  .partidas-header, .partida-row { gap: 8px; margin-bottom: 3px; }
+  input { padding: 2px; border: 1px solid #000; font-size: 9px; }
+  .totales { margin-top: 10px; gap: 2px; }
+  .totales div { padding: 2px 6px; background: white; border: 1px solid #000; font-size: 9px; }
+  .acciones { display: none; } /* Ocultar botones en impresión */
+  .primera-pagina { page-break-inside: avoid; }
+}

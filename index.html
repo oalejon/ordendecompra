@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orden de Compra RM Corporativo Ginursa</title>
+  <link rel="stylesheet" href="estilos.css" />
+
+  <!-- LIBRERÍA PARA PDF (Carga automática de saltos de página) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="primera-pagina">
+    <!-- ENCABEZADO -->
+    <div class="encabezado">
+      <div class="logo">
+        <img src="Logo.pn" alt="Logo RM Ginursa">
+      </div>
+      <div class="datos-empresa">
+        <strong>RM CORPORATIVO GINURSA</strong><br>
+        RFC: RCG2311283N4<br>
+        Calle: Ocotillo #102 Int. 1<br>
+        Colonia: Arboledas, Ciudad Bajio<br>
+        Ciudad: Salamanca, Gto. C.P. 36766<br>
+        Tel: 4641085801<br>
+        e-mail: contador@rmginursa.com.mx<br>
+      </div>
+    </div>
+
+    <!-- FOLIO Y FECHA -->
+    <div class="fila-superior">
+      <div class="orden-compra">
+        <label for="numero-orden">Orden de Compra:</label>
+        <input type="text" id="numero-orden" value="OC-00-001">
+      </div>
+      <div class="fecha-orden">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha">
+      </div>
+    </div>
+
+    <!-- SECCIONES DE INFORMACIÓN -->
+    <h2>Información del Proveedor</h2>
+    <div class="proveedor-section">
+      <div class="fila-proveedor">
+        <div class="campo-full"><label>Proveedor</label><input type="text" id="proveedor"></div>
+      </div>
+      <div class="fila-proveedor">
+        <div class="campo-full"><label>Dirección</label><input type="text" id="direccion-proveedor"></div>
+      </div>
+      <div class="fila-proveedor">
+        <div class="campo-third"><label>RFC</label><input type="text" id="rfc"></div>
+        <div class="campo-third"><label>Teléfono</label><input type="text" id="telefono-proveedor"></div>
+        <div class="campo-third"><label>Correo</label><input type="text" id="correo-proveedor"></div>
+      </div>
+    </div>
+
+    <h2>Información del Comprador</h2>
+    <div class="comprador-section">
+      <div class="fila-comprador">
+        <div class="campo-full"><label>Nombre Comprador</label><input type="text" id="nombre-comprador"></div>
+      </div>
+      <div class="fila-comprador">
+        <div class="campo-half"><label>Teléfono</label><input type="text" id="telefono-comprador"></div>
+        <div class="campo-half"><label>Correo</label><input type="text" id="correo-comprador"></div>
+      </div>
+      <div class="fila-comprador">
+        <div class="campo-half"><label>Entrega en:</label><input type="text" id="direccion-entrega"></div>
+        <div class="campo-half"><label>Autorizado por:</label><input type="text" id="autorizado-por"></div>
+      </div>
+    </div>
+
+    <h2>Información de Recepción</h2>
+    <div class="recepcion-section">
+      <div class="fila-recepcion">
+        <div class="campo-full"><label>Condiciones de Entrega</label><input type="text" id="condiciones-entrega"></div>
+      </div>
+      <div class="fila-recepcion">
+        <div class="campo-half"><label>Forma de Pago</label><input type="text" id="forma-pago"></div>
+        <div class="campo-half"><label>Fecha de Entrega</label><input type="date" id="fecha-entrega"></div>
+      </div>
+    </div>
+    </div>
+
+    <!-- PARTIDAS (Saltará a la Hoja 2) -->
+    <div class="partidas-container">
+      <h2>Partidas</h2>
+      <div class="partidas-header">
+        <div>Partida</div>
+        <div>Descripción</div>
+        <div>Precio Unit.</div>
+        <div>Cant.</div>
+        <div>Total (MXN)</div>
+        <div></div>
+      </div>
+      <div class="partida-row">
+        <input type="text" class="partida" value="1" readonly>
+        <input type="text" class="descripcion" placeholder="Descripción">
+        <input type="text" class="precio" placeholder="0.00">
+        <input type="text" class="cantidad" placeholder="0">
+        <input type="text" class="total" readonly>
+      </div>
+      <button id="agregar-partida" type="button">+ Agregar Partida</button>
+      <div class="totales">
+        <div>SUBTOTAL: $<span id="subtotal">0.00</span></div>
+        <div>IVA (16%): $<span id="iva">0.00</span></div>
+        <div>TOTAL: $<span id="total">0.00</span></div>
+      </div>
+      <div class="acciones">
+        <button id="btnPDF" type="button">Generar PDF</button>
+        <button id="btnEnviar" type="button">Enviar al NAS</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
